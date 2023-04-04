@@ -1,8 +1,13 @@
 import './App.css';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
-import { useState } from 'react';
 import axios from 'axios';
+import About from './components/About';
+import Detail from './components/Detail';
+import Error from './components/Error';
+import { useState } from 'react';
+import { Route,Routes } from 'react-router-dom';
+
 
 function App() {
    const [characters,setCharacters] = useState([])
@@ -23,9 +28,14 @@ function App() {
    }
 
    return (
-      <div className='App'>
+      <div>
          <Nav onSearch={onSearch}/>
-         <Cards characters={characters} onClose={onClose} />
+      <Routes>
+         <Route path='/' element={<Cards characters={characters} onClose={onClose}/>}></Route>
+         <Route path='/about' element={<About/>}></Route>
+         <Route path='/detail/:id' element={<Detail/>}></Route>
+         <Route path=':Error' element={<Error/>}></Route>
+      </Routes>
       </div>
    );
 }
