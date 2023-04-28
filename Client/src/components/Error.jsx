@@ -1,4 +1,4 @@
-const Error = () => {
+const Errors = () => {
     return(
         <div>
             <h1>Errores se han cometido</h1>
@@ -7,4 +7,4 @@ const Error = () => {
 
 }
 
-export default Error
+export default Errors
